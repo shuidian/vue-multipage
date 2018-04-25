@@ -24,9 +24,16 @@ module.exports = {
   // entry: {
   //   app: './src/main.js'
   // },
-  entry: {
-    a: './src/modules/a/index.js',
-    b: './src/modules/b/index.js'
+  entry() {
+    // 初始化入口配置
+    const entry = {}
+    // 所有模块的列表
+    const moduleToBuild = require('./module-conf').getModuleToBuild() || []
+    // 根据传入的待打包目录名称，构建多入口配置
+    for (let module of moduleToBuild) {
+      entry[module] = `./src/modules/${module}/index.js`
+    }
+    return entry
   },
   output: {
     path: config.build.assetsRoot,
