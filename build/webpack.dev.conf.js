@@ -54,7 +54,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     watchOptions: {
       poll: config.dev.poll,
     },
-    setup(app) {
+    before(app) {
       // 写个小路由，打开浏览器的时候可以选一个开发路径
       let html = `<html><head><title>调试页面</title>`
       html += `<style>body{margin: 0}.module-menu{float: left;width: 200px;height: 100%;padding: 0 8px;border-right: 1px solid #00ffff;box-sizing: border-box}.module-container{float: left;width: calc(100% - 200px);height: 100%}.module-container iframe{width: 100%;height: 100%}</style>`
