@@ -14,7 +14,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: [
+      {
+        context: '/mock',
+        // 代理的后台地址
+        target: 'http://192.168.1.155:8082', // 示例而已，自行按需修改
+        pathRewrite: {'/mock': ''},
+        changeOrigin: true
+      }
+    ],
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
