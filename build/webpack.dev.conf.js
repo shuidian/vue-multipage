@@ -62,6 +62,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       for(let module of moduleList){
         html += `<a href="/${module}/index.html" target="container">${module.toString()}</a><br>`
       }
+      html += `<p>将这一栏里面的链接拷贝出来直接访问，也可调式，而且可能会比当前方式更方便。</p>`
       html += `</div>`
       html += `<div class="module-container"><iframe src="/${moduleList[0]}/index.html" name="container" frameborder="0"></iframe></div>`
       html += `</body></html>`
